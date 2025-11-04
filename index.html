@@ -1,24 +1,3 @@
-<!DOCTYPE html> 
-<html lang="es"> 
-<head> 
-     <meta charset="UTF-8"> 
-     <title>Mi primera web</title> 
-
-     <style> 
-
-body { 
-    background-color: lightblue; 
-} 
-
-     </style> 
-
-</head> 
-<body> 
-     <h1>¡Hola mundo! 🌍</h1> 
-     <p>Esta es mi primera página creada con GitHub Pages.</p> 
-
-</body> 
-</html> 
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -26,52 +5,78 @@ body {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quiz de Cultura General</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
+      margin: 0;
       font-family: "Poppins", sans-serif;
-      background: linear-gradient(to right, #74ebd5, #ACB6E5);
-      color: #222;
+      background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+      min-height: 100vh;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
-      margin: 0;
+    }
+
+    .container {
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      width: 90%;
+      max-width: 600px;
+      text-align: center;
+      animation: fadeIn 0.5s ease;
     }
 
     h1 {
-      text-align: center;
+      color: #333;
       margin-bottom: 20px;
     }
 
-    #quiz {
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-      padding: 30px;
-      max-width: 500px;
-      width: 90%;
-    }
-
-    .question {
-      font-size: 1.2em;
-      margin-bottom: 15px;
-    }
-
-    .answers button {
-      display: block;
-      width: 100%;
-      margin: 5px 0;
-      padding: 10px;
+    button {
+      background-color: #4a90e2;
+      color: white;
       border: none;
-      border-radius: 8px;
-      background-color: #eee;
+      padding: 12px 20px;
+      border-radius: 10px;
       cursor: pointer;
       transition: 0.3s;
       font-size: 1em;
     }
 
+    button:hover {
+      background-color: #3b78c2;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .question {
+      font-size: 1.2em;
+      margin-bottom: 15px;
+      font-weight: 500;
+    }
+
+    .answers {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .answers button {
+      background-color: #f0f0f0;
+      color: #222;
+      border: none;
+      padding: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
     .answers button:hover {
-      background-color: #d0e6f6;
+      background-color: #dce9f5;
     }
 
     .correct {
@@ -82,29 +87,43 @@ body {
       background-color: #f79e9e !important;
     }
 
-    #next-btn {
-      display: none;
-      margin-top: 20px;
-      background-color: #4a90e2;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.3s;
+    .progress {
+      margin: 15px 0;
+      font-size: 0.9em;
+      color: #666;
     }
 
-    #next-btn:hover {
-      background-color: #3b78c2;
+    .score {
+      font-size: 1.3em;
+      font-weight: bold;
+      color: #333;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
-  <h1>Quiz de Cultura General 🌍</h1>
-  <div id="quiz">
-    <div class="question" id="question"></div>
-    <div class="answers" id="answers"></div>
-    <button id="next-btn">Siguiente pregunta ➡️</button>
+
+  <div class="container" id="inicio">
+    <h1>🌍 Quiz de Cultura General</h1>
+    <p>Demuestra cuánto sabes del mundo. ¡Buena suerte!</p>
+    <button id="empezar">Comenzar Quiz 🚀</button>
+  </div>
+
+  <div class="container hidden" id="quiz">
+    <div class="progress" id="progreso"></div>
+    <div class="question" id="pregunta"></div>
+    <div class="answers" id="respuestas"></div>
+    <button id="siguiente" class="hidden">Siguiente ➡️</button>
+  </div>
+
+  <div class="container hidden" id="resultado">
+    <h1>🎉 ¡Has terminado!</h1>
+    <p class="score" id="puntuacion"></p>
+    <button id="reiniciar">Jugar de nuevo 🔄</button>
   </div>
 
   <script>
@@ -141,49 +160,57 @@ body {
       }
     ];
 
-    const questionEl = document.getElementById("question");
-    const answersEl = document.getElementById("answers");
-    const nextBtn = document.getElementById("next-btn");
+    const inicio = document.getElementById("inicio");
+    const quiz = document.getElementById("quiz");
+    const resultado = document.getElementById("resultado");
+    const preguntaEl = document.getElementById("pregunta");
+    const respuestasEl = document.getElementById("respuestas");
+    const siguienteBtn = document.getElementById("siguiente");
+    const progresoEl = document.getElementById("progreso");
+    const puntuacionEl = document.getElementById("puntuacion");
 
-    let currentQuestion = 0;
-    let score = 0;
+    let indice = 0;
+    let puntos = 0;
+
+    document.getElementById("empezar").addEventListener("click", () => {
+      inicio.classList.add("hidden");
+      quiz.classList.remove("hidden");
+      mostrarPregunta();
+    });
 
     function mostrarPregunta() {
-      resetearEstado();
-      const preguntaActual = preguntas[currentQuestion];
-      questionEl.textContent = preguntaActual.pregunta;
+      siguienteBtn.classList.add("hidden");
+      respuestasEl.innerHTML = "";
+      const preguntaActual = preguntas[indice];
+      preguntaEl.textContent = preguntaActual.pregunta;
+      progresoEl.textContent = `Pregunta ${indice + 1} de ${preguntas.length}`;
 
-      preguntaActual.opciones.forEach((opcion, index) => {
+      preguntaActual.opciones.forEach((opcion, i) => {
         const btn = document.createElement("button");
         btn.textContent = opcion;
-        btn.addEventListener("click", () => seleccionarRespuesta(index));
-        answersEl.appendChild(btn);
+        btn.addEventListener("click", () => seleccionar(i, btn));
+        respuestasEl.appendChild(btn);
       });
     }
 
-    function resetearEstado() {
-      nextBtn.style.display = "none";
-      answersEl.innerHTML = "";
-    }
-
-    function seleccionarRespuesta(indice) {
-      const preguntaActual = preguntas[currentQuestion];
-      const botones = answersEl.querySelectorAll("button");
+    function seleccionar(indiceOpcion, boton) {
+      const preguntaActual = preguntas[indice];
+      const botones = respuestasEl.querySelectorAll("button");
 
       botones.forEach((b, i) => {
-        if (i === preguntaActual.correcta) b.classList.add("correct");
-        if (i === indice && i !== preguntaActual.correcta) b.classList.add("wrong");
         b.disabled = true;
+        if (i === preguntaActual.correcta) b.classList.add("correct");
+        else if (i === indiceOpcion && i !== preguntaActual.correcta) b.classList.add("wrong");
       });
 
-      if (indice === preguntaActual.correcta) score++;
+      if (indiceOpcion === preguntaActual.correcta) puntos++;
 
-      nextBtn.style.display = "block";
+      siguienteBtn.classList.remove("hidden");
     }
 
-    nextBtn.addEventListener("click", () => {
-      currentQuestion++;
-      if (currentQuestion < preguntas.length) {
+    siguienteBtn.addEventListener("click", () => {
+      indice++;
+      if (indice < preguntas.length) {
         mostrarPregunta();
       } else {
         mostrarResultado();
@@ -191,22 +218,17 @@ body {
     });
 
     function mostrarResultado() {
-      resetearEstado();
-      questionEl.textContent = `Has terminado 🎉`;
-      answersEl.innerHTML = `Tu puntuación es ${score} de ${preguntas.length}.`;
-      nextBtn.textContent = "Reiniciar 🔄";
-      nextBtn.style.display = "block";
-      nextBtn.addEventListener("click", reiniciar);
+      quiz.classList.add("hidden");
+      resultado.classList.remove("hidden");
+      puntuacionEl.textContent = `Has conseguido ${puntos} de ${preguntas.length} puntos.`;
     }
 
-    function reiniciar() {
-      currentQuestion = 0;
-      score = 0;
-      nextBtn.textContent = "Siguiente pregunta ➡️";
-      mostrarPregunta();
-    }
-
-    mostrarPregunta();
+    document.getElementById("reiniciar").addEventListener("click", () => {
+      resultado.classList.add("hidden");
+      inicio.classList.remove("hidden");
+      indice = 0;
+      puntos = 0;
+    });
   </script>
 </body>
 </html>
