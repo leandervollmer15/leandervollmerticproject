@@ -19,3 +19,194 @@ body {
 
 </body> 
 </html> 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz de Cultura General</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(to right, #74ebd5, #ACB6E5);
+      color: #222;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    #quiz {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      padding: 30px;
+      max-width: 500px;
+      width: 90%;
+    }
+
+    .question {
+      font-size: 1.2em;
+      margin-bottom: 15px;
+    }
+
+    .answers button {
+      display: block;
+      width: 100%;
+      margin: 5px 0;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background-color: #eee;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 1em;
+    }
+
+    .answers button:hover {
+      background-color: #d0e6f6;
+    }
+
+    .correct {
+      background-color: #9ef79e !important;
+    }
+
+    .wrong {
+      background-color: #f79e9e !important;
+    }
+
+    #next-btn {
+      display: none;
+      margin-top: 20px;
+      background-color: #4a90e2;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #next-btn:hover {
+      background-color: #3b78c2;
+    }
+  </style>
+</head>
+<body>
+  <h1>Quiz de Cultura General 🌍</h1>
+  <div id="quiz">
+    <div class="question" id="question"></div>
+    <div class="answers" id="answers"></div>
+    <button id="next-btn">Siguiente pregunta ➡️</button>
+  </div>
+
+  <script>
+    const preguntas = [
+      {
+        pregunta: "¿Cuál es el país más grande del mundo?",
+        opciones: ["China", "Canadá", "Rusia", "Estados Unidos"],
+        correcta: 2
+      },
+      {
+        pregunta: "¿Quién pintó la Mona Lisa?",
+        opciones: ["Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Salvador Dalí"],
+        correcta: 2
+      },
+      {
+        pregunta: "¿Cuál es el océano más grande?",
+        opciones: ["Atlántico", "Índico", "Pacífico", "Ártico"],
+        correcta: 2
+      },
+      {
+        pregunta: "¿Cuántos planetas hay en el sistema solar?",
+        opciones: ["7", "8", "9", "10"],
+        correcta: 1
+      },
+      {
+        pregunta: "¿En qué continente está Egipto?",
+        opciones: ["Asia", "Europa", "África", "América"],
+        correcta: 2
+      },
+      {
+        pregunta: "¿Quién escribió 'Don Quijote de la Mancha'?",
+        opciones: ["Gabriel García Márquez", "Miguel de Cervantes", "Federico García Lorca", "Jorge Luis Borges"],
+        correcta: 1
+      }
+    ];
+
+    const questionEl = document.getElementById("question");
+    const answersEl = document.getElementById("answers");
+    const nextBtn = document.getElementById("next-btn");
+
+    let currentQuestion = 0;
+    let score = 0;
+
+    function mostrarPregunta() {
+      resetearEstado();
+      const preguntaActual = preguntas[currentQuestion];
+      questionEl.textContent = preguntaActual.pregunta;
+
+      preguntaActual.opciones.forEach((opcion, index) => {
+        const btn = document.createElement("button");
+        btn.textContent = opcion;
+        btn.addEventListener("click", () => seleccionarRespuesta(index));
+        answersEl.appendChild(btn);
+      });
+    }
+
+    function resetearEstado() {
+      nextBtn.style.display = "none";
+      answersEl.innerHTML = "";
+    }
+
+    function seleccionarRespuesta(indice) {
+      const preguntaActual = preguntas[currentQuestion];
+      const botones = answersEl.querySelectorAll("button");
+
+      botones.forEach((b, i) => {
+        if (i === preguntaActual.correcta) b.classList.add("correct");
+        if (i === indice && i !== preguntaActual.correcta) b.classList.add("wrong");
+        b.disabled = true;
+      });
+
+      if (indice === preguntaActual.correcta) score++;
+
+      nextBtn.style.display = "block";
+    }
+
+    nextBtn.addEventListener("click", () => {
+      currentQuestion++;
+      if (currentQuestion < preguntas.length) {
+        mostrarPregunta();
+      } else {
+        mostrarResultado();
+      }
+    });
+
+    function mostrarResultado() {
+      resetearEstado();
+      questionEl.textContent = `Has terminado 🎉`;
+      answersEl.innerHTML = `Tu puntuación es ${score} de ${preguntas.length}.`;
+      nextBtn.textContent = "Reiniciar 🔄";
+      nextBtn.style.display = "block";
+      nextBtn.addEventListener("click", reiniciar);
+    }
+
+    function reiniciar() {
+      currentQuestion = 0;
+      score = 0;
+      nextBtn.textContent = "Siguiente pregunta ➡️";
+      mostrarPregunta();
+    }
+
+    mostrarPregunta();
+  </script>
+</body>
+</html>
