@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz de Cultura</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🌍 Quiz de Cultura</h1>
+  </header>
+
+  <main>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1522199710521-72d69614c702?auto=format&fit=crop&w=800&q=80" alt="culture">
+      <p><strong>¿Cuál es el país más grande del mundo?</strong></p>
+      <button onclick="check(this, false)">China</button>
+      <button onclick="check(this, true)">Rusia ✅</button>
+      <button onclick="check(this, false)">Canadá</button>
+      <button onclick="check(this, false)">EE.UU.</button>
+      <p id="feedback"></p>
+      <button onclick="window.location.href='quiz.html'">⬅️ Volver</button>
+    </div>
+  </main>
+
+  <script>
+    function check(btn, correcto) {
+      const fb = document.getElementById('feedback');
+      if (correcto) {
+        fb.textContent = "🔥 ¡Correcto! Sabes de geografía.";
+        fb.style.color = "green";
+      } else {
+        fb.textContent = "💀 Incorrecto... Era demasiado fácil 😆";
+        fb.style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html>
