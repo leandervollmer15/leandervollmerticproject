@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎵 Música & Bandas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🎸 Quiz: Música & Bandas</h1>
+  </header>
+
+  <main>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80" alt="bandas rock">
+      
+      <p><strong>¿Qué banda británica lanzó el álbum “A Night at the Opera”?</strong></p>
+      <button onclick="check(this, true)">Queen 👑</button>
+      <button onclick="check(this, false)">The Beatles</button>
+      <button onclick="check(this, false)">Arctic Monkeys</button>
+      <button onclick="check(this, false)">Oasis</button>
+      <p class="feedback"></p>
+      <hr>
+
+      <p><strong>¿De qué país es la banda “Daft Punk”?</strong></p>
+      <button onclick="check(this, false)">EE.UU.</button>
+      <button onclick="check(this, true)">Francia 🇫🇷</button>
+      <button onclick="check(this, false)">Canadá</button>
+      <button onclick="check(this, false)">Alemania</button>
+      <p class="feedback"></p>
+      <hr>
+
+      <p><strong>¿En qué año se formó Imagine Dragons?</strong></p>
+      <button onclick="check(this, false)">1999</button>
+      <button onclick="check(this, false)">2003</button>
+      <button onclick="check(this, true)">2008 🎤</button>
+      <button onclick="check(this, false)">2012</button>
+      <p class="feedback"></p>
+      <br>
+
+      <button onclick="window.location.href='temas.html'">⬅️ Volver</button>
+    </div>
+  </main>
+
+  <script>
+    function check(btn, correcto) {
+      const fb = btn.parentElement.querySelector(".feedback");
+      if (correcto) {
+        fb.textContent = "🔥 Correcto! T
