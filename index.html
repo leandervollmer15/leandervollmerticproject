@@ -6,10 +6,28 @@
   <title>El Gran Desafío 2.0</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Extra Styles für Startseite */
+    body {
+      background: linear-gradient(135deg, #ffe5ec, #e0f7fa);
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      background: #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      font-size: 2em;
+    }
+
     .hero {
       text-align: center;
       animation: fadeIn 1s ease;
+      padding: 20px;
     }
 
     .hero img {
@@ -28,7 +46,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 20px;
-      margin-top: 30px;
+      margin: 40px;
     }
 
     .topic {
@@ -36,11 +54,20 @@
       border-radius: 15px;
       padding: 20px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
     }
 
     .topic:hover {
-      transform: translateY(-5px);
+      transform: translateY(-5px) scale(1.03);
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .topic h3 {
+      margin-top: 10px;
     }
 
     footer {
@@ -48,6 +75,28 @@
       color: #333;
       padding: 20px;
       opacity: 0.8;
+      background: #fff;
+    }
+
+    button {
+      background-color: #ff4d6d;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #ff1e50;
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
   </style>
 </head>
@@ -64,29 +113,29 @@
     </div>
 
     <div class="topics">
-      <div class="topic">
+      <a href="comida.html" class="topic">
         <h3>🍕 Comida y Locura</h3>
         <p>Datos tan raros sobre comida que nunca volverás a ver una pizza igual.</p>
-      </div>
+      </a>
 
-      <div class="topic">
+      <a href="musica.html" class="topic">
         <h3>🎵 Música & Bandas</h3>
         <p>Desde Queen hasta Daft Punk — demuestra que tu gusto musical tiene clase.</p>
-      </div>
+      </a>
 
-      <div class="topic">
+      <a href="fails.html" class="topic">
         <h3>💀 Fails Épicos</h3>
         <p>Errores tan ridículos que deberíamos darles un premio por creatividad.</p>
-      </div>
+      </a>
 
-      <div class="topic">
+      <a href="cosas-raras.html" class="topic">
         <h3>🧠 Cosas Raras del Mundo</h3>
         <p>Hechos que te harán decir: “¿Eso en serio existe?”.</p>
-      </div>
+      </a>
     </div>
 
     <div style="text-align:center; margin-top:40px;">
-      <button onclick="window.location.href='temas.html'">🚀 ¡Entrar al Desafío!</button>
+      <button onclick="window.location.href='temas.html'">🚀 Ver todos los temas</button>
     </div>
   </main>
 
