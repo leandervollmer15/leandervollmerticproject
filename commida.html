@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🍕 Comida y Locura</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🍕 Quiz: Comida y Locura</h1>
+  </header>
+
+  <main>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=800&q=80" alt="comida loca">
+
+      <p><strong>¿Qué país inventó la pizza moderna?</strong></p>
+      <button onclick="check(this, true)">Italia 🇮🇹</button>
+      <button onclick="check(this, false)">Grecia</button>
+      <button onclick="check(this, false)">Estados Unidos</button>
+      <button onclick="check(this, false)">Francia</button>
+      <p class="feedback"></p>
+      <hr>
+
+      <p><strong>¿Qué comida fue prohibida en Singapur desde 1992?</strong></p>
+      <button onclick="check(this, false)">Hamburguesas</button>
+      <button onclick="check(this, true)">Chicle (goma de mascar) 😆</button>
+      <button onclick="check(this, false)">Papas fritas</button>
+      <button onclick="check(this, false)">Hot dogs</button>
+      <p class="feedback"></p>
+      <hr>
+
+      <p><strong>¿Cuál de estos alimentos no se pudre nunca?</strong></p>
+      <button onclick="check(this, false)">Arroz</button>
+      <button onclick="check(this, true)">Miel 🍯</button>
+      <button onclick="check(this, false)">Café</button>
+      <button onclick="check(this, false)">Chocolate</button>
+      <p class="feedback"></p>
+
+      <br>
+      <button onclick="window.location.href='temas.html'">⬅️ Volver</button>
+    </div>
+  </main>
+
+  <script>
+    function check(btn, correcto) {
+      const fb = btn.parentElement.querySelector(".feedback");
+      if (correcto) {
+        fb.textContent = "✅ Correcto! Eres un verdadero chef mental.";
+        fb.style.color = "green";
+      } else {
+        fb.textContent = "💀 Incorrecto... esa respuesta está más quemada que una pizza en microondas.";
+        fb.style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html>
