@@ -3,87 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🎉 Resultado Final</title>
+  <title>🏁 Resultado Final</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    .result-card {
-      text-align: center;
-      animation: fadeIn 1s ease;
-    }
-
-    .result-card img {
-      width: 300px;
-      border-radius: 20px;
-      margin-top: 20px;
-      box-shadow: 0 4px 25px rgba(0,0,0,0.2);
-      transition: transform 0.3s ease;
-    }
-
-    .result-card img:hover {
-      transform: scale(1.05);
-    }
-
-    .message {
-      font-size: 1.3em;
-      margin-top: 15px;
-      color: #333;
-    }
-
-    .buttons {
-      margin-top: 30px;
-    }
-
-    .buttons button {
-      margin: 8px;
-    }
-  </style>
 </head>
 <body>
   <header>
-    <h1>🎯 El Gran Desafío — Resultados</h1>
+    <h1>🏆 ¡Has llegado al final!</h1>
   </header>
 
-  <main>
-    <div class="card result-card">
-      <h2>¡Has llegado al final del desafío! 🏆</h2>
-      <p class="message" id="mensaje">Analizando tus respuestas...</p>
-      <img id="imagen" src="https://images.unsplash.com/photo-1579783902779-80d1c58ad40d?auto=format&fit=crop&w=800&q=80" alt="resultado divertido">
-
-      <div class="buttons">
-        <button onclick="window.location.href='temas.html'">🔁 Jugar otro quiz</button>
-        <button onclick="window.location.href='index.html'">🏠 Volver al inicio</button>
-      </div>
-    </div>
+  <main class="result">
+    <h2>Tu aventura de conocimiento terminó... por ahora 😎</h2>
+    <img src="https://images.unsplash.com/photo-1606788075761-3e8645d3a4e9?auto=format&fit=crop&w=800&q=80" alt="Felicidades">
+    <p id="mensaje"></p>
+    <button onclick="window.location.href='index.html'">🏠 Volver al inicio</button>
   </main>
 
   <script>
-    // Mini-Feature: zeigt zufällige Endbotschaft und Bild
-    const finales = [
-      {
-        texto: "🔥 Eres un genio total. Probablemente deberías tener tu propio show.",
-        imagen: "https://images.unsplash.com/photo-1606813902772-6b4e465a88a2?auto=format&fit=crop&w=800&q=80"
-      },
-      {
-        texto: "💀 Bueno... al menos lo intentaste. Shrek estaría decepcionado.",
-        imagen: "https://images.unsplash.com/photo-1606112219348-204d7d8b94ee?auto=format&fit=crop&w=800&q=80"
-      },
-      {
-        texto: "😎 Bastante bien, crack. Un poco más y te contratan para '¿Quién quiere ser millonario?'.",
-        imagen: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=800&q=80"
-      },
-      {
-        texto: "😂 Tu rendimiento fue tan raro como los datos del quiz de comida.",
-        imagen: "https://images.unsplash.com/photo-1532634896-26909d0d4b89?auto=format&fit=crop&w=800&q=80"
-      },
-      {
-        texto: "🍀 ¡Nada mal! Se nota que comiste pizza antes de jugar.",
-        imagen: "https://images.unsplash.com/photo-1601924582971-df3bbef1a067?auto=format&fit=crop&w=800&q=80"
-      }
+    const frases = [
+      "🔥 Eres un genio total.",
+      "💀 Bueno... al menos lo intentaste.",
+      "😎 Nada mal, futuro campeón de trivia.",
+      "🍀 Tienes suerte... o intuición.",
+      "😂 Lo importante es participar, ¿no?"
     ];
-
-    const randomFinal = finales[Math.floor(Math.random() * finales.length)];
-    document.getElementById("mensaje").textContent = randomFinal.texto;
-    document.getElementById("imagen").src = randomFinal.imagen;
+    document.getElementById('mensaje').textContent = frases[Math.floor(Math.random() * frases.length)];
   </script>
 </body>
 </html>
