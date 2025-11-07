@@ -6,28 +6,61 @@
   <title>🌍 Cultura General</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body onload="resetScore()">
   <header>
     <h1>🌍 Quiz de Cultura General</h1>
+    <p>Pon a prueba tu mente con datos curiosos, historia inesperada y cultura pop de todo el mundo.</p>
   </header>
 
   <main class="quiz">
+    <!-- Pregunta 1 -->
     <div class="question">
-      <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=80" alt="Mundo">
-      <h2>¿Cuál es el país más grande del mundo?</h2>
-      <button onclick="checkAnswer(this, true)">Rusia</button>
-      <button onclick="checkAnswer(this, false)">China</button>
-      <button onclick="checkAnswer(this, false)">Canadá</button>
-      <button onclick="checkAnswer(this, false)">EE.UU.</button>
+      <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=800&q=80" alt="Stonehenge">
+      <h2>¿Dónde se encuentra el monumento prehistórico conocido como “Stonehenge”?</h2>
+      <button onclick="checkAnswer(this, true)">Reino Unido</button>
+      <button onclick="checkAnswer(this, false)">Irlanda</button>
+      <button onclick="checkAnswer(this, false)">Escocia</button>
+      <button onclick="checkAnswer(this, false)">Suecia</button>
     </div>
 
+    <!-- Pregunta 2 -->
     <div class="question">
-      <img src="https://images.unsplash.com/photo-1596283768412-5e3d8de58d8a?auto=format&fit=crop&w=800&q=80" alt="Mona Lisa">
-      <h2>¿Quién pintó la Mona Lisa?</h2>
-      <button onclick="checkAnswer(this, true)">Leonardo da Vinci</button>
-      <button onclick="checkAnswer(this, false)">Van Gogh</button>
-      <button onclick="checkAnswer(this, false)">Picasso</button>
-      <button onclick="checkAnswer(this, false)">Dalí</button>
+      <img src="https://images.unsplash.com/photo-1533055640609-24b498dfd71b?auto=format&fit=crop&w=800&q=80" alt="Antártida">
+      <h2>¿Qué país no tiene una población permanente, pero sí estaciones de investigación?</h2>
+      <button onclick="checkAnswer(this, true)">Antártida</button>
+      <button onclick="checkAnswer(this, false)">Groenlandia</button>
+      <button onclick="checkAnswer(this, false)">Islandia</button>
+      <button onclick="checkAnswer(this, false)">Noruega</button>
+    </div>
+
+    <!-- Pregunta 3 -->
+    <div class="question">
+      <img src="https://images.unsplash.com/photo-1563201515-1d10b4e30e51?auto=format&fit=crop&w=800&q=80" alt="Idiomas del mundo">
+      <h2>¿Cuál de estos idiomas se habla en más países del mundo?</h2>
+      <button onclick="checkAnswer(this, false)">Chino mandarín</button>
+      <button onclick="checkAnswer(this, true)">Francés</button>
+      <button onclick="checkAnswer(this, false)">Árabe</button>
+      <button onclick="checkAnswer(this, false)">Ruso</button>
+    </div>
+
+    <!-- Pregunta 4 -->
+    <div class="question">
+      <img src="https://images.unsplash.com/photo-1604079628040-94301bb21b74?auto=format&fit=crop&w=800&q=80" alt="Lago">
+      <h2>¿Cuál es el lago más profundo del planeta?</h2>
+      <button onclick="checkAnswer(this, true)">Lago Baikal (Rusia)</button>
+      <button onclick="checkAnswer(this, false)">Lago Tanganica (África)</button>
+      <button onclick="checkAnswer(this, false)">Lago Superior (EE.UU.)</button>
+      <button onclick="checkAnswer(this, false)">Lago Victoria (África)</button>
+    </div>
+
+    <!-- Pregunta 5 -->
+    <div class="question">
+      <img src="https://images.unsplash.com/photo-1555685812-4b943f1cb0eb?auto=format&fit=crop&w=800&q=80" alt="Bandera de Nepal">
+      <h2>¿Qué país tiene la única bandera nacional que no es rectangular?</h2>
+      <button onclick="checkAnswer(this, false)">Bután</button>
+      <button onclick="checkAnswer(this, false)">Sri Lanka</button>
+      <button onclick="checkAnswer(this, true)">Nepal</button>
+      <button onclick="checkAnswer(this, false)">Mongolia</button>
     </div>
 
     <button class="next" onclick="window.location.href='resultado.html'">Ver resultado 🏁</button>
