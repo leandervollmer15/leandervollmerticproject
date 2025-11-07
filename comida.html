@@ -8,52 +8,31 @@
 </head>
 <body>
   <header>
-    <h1>🍕 Quiz: Comida y Locura</h1>
+    <h1>🍔 Quiz de Comida y Locura</h1>
   </header>
 
-  <main>
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=800&q=80" alt="comida loca">
-
-      <p><strong>¿Qué país inventó la pizza moderna?</strong></p>
-      <button onclick="check(this, true)">Italia 🇮🇹</button>
-      <button onclick="check(this, false)">Grecia</button>
-      <button onclick="check(this, false)">Estados Unidos</button>
-      <button onclick="check(this, false)">Francia</button>
-      <p class="feedback"></p>
-      <hr>
-
-      <p><strong>¿Qué comida fue prohibida en Singapur desde 1992?</strong></p>
-      <button onclick="check(this, false)">Hamburguesas</button>
-      <button onclick="check(this, true)">Chicle (goma de mascar) 😆</button>
-      <button onclick="check(this, false)">Papas fritas</button>
-      <button onclick="check(this, false)">Hot dogs</button>
-      <p class="feedback"></p>
-      <hr>
-
-      <p><strong>¿Cuál de estos alimentos no se pudre nunca?</strong></p>
-      <button onclick="check(this, false)">Arroz</button>
-      <button onclick="check(this, true)">Miel 🍯</button>
-      <button onclick="check(this, false)">Café</button>
-      <button onclick="check(this, false)">Chocolate</button>
-      <p class="feedback"></p>
-
-      <br>
-      <button onclick="window.location.href='temas.html'">⬅️ Volver</button>
+  <main class="quiz">
+    <div class="question">
+      <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=800&q=80" alt="Pizza">
+      <h2>¿Dónde se inventó la pizza moderna?</h2>
+      <button onclick="checkAnswer(this, true)">Italia</button>
+      <button onclick="checkAnswer(this, false)">EE.UU.</button>
+      <button onclick="checkAnswer(this, false)">Grecia</button>
+      <button onclick="checkAnswer(this, false)">Francia</button>
     </div>
+
+    <div class="question">
+      <img src="https://images.unsplash.com/photo-1604909053247-7a4b56b92a3c?auto=format&fit=crop&w=800&q=80" alt="Chocolate">
+      <h2>¿De dónde proviene el cacao originalmente?</h2>
+      <button onclick="checkAnswer(this, true)">América Central</button>
+      <button onclick="checkAnswer(this, false)">África</button>
+      <button onclick="checkAnswer(this, false)">Europa</button>
+      <button onclick="checkAnswer(this, false)">Asia</button>
+    </div>
+
+    <button class="next" onclick="window.location.href='resultado.html'">Ver resultado 🏁</button>
   </main>
 
-  <script>
-    function check(btn, correcto) {
-      const fb = btn.parentElement.querySelector(".feedback");
-      if (correcto) {
-        fb.textContent = "✅ Correcto! Eres un verdadero chef mental.";
-        fb.style.color = "green";
-      } else {
-        fb.textContent = "💀 Incorrecto... esa respuesta está más quemada que una pizza en microondas.";
-        fb.style.color = "red";
-      }
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
