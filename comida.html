@@ -9,9 +9,11 @@
 <body>
   <header>
     <h1>🍔 Quiz de Comida y Locura</h1>
+    <p>Datos tan raros sobre comida que nunca volverás a ver tu plato igual 😜</p>
   </header>
 
   <main class="quiz">
+    <!-- Pregunta 1 -->
     <div class="question">
       <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=800&q=80" alt="Pizza">
       <h2>¿Dónde se inventó la pizza moderna?</h2>
@@ -21,13 +23,44 @@
       <button onclick="checkAnswer(this, false)">Francia</button>
     </div>
 
+    <!-- Pregunta 2 -->
     <div class="question">
       <img src="https://images.unsplash.com/photo-1604909053247-7a4b56b92a3c?auto=format&fit=crop&w=800&q=80" alt="Chocolate">
-      <h2>¿De dónde proviene el cacao originalmente?</h2>
+      <h2>¿De dónde proviene originalmente el cacao?</h2>
       <button onclick="checkAnswer(this, true)">América Central</button>
       <button onclick="checkAnswer(this, false)">África</button>
       <button onclick="checkAnswer(this, false)">Europa</button>
       <button onclick="checkAnswer(this, false)">Asia</button>
+    </div>
+
+    <!-- Pregunta 3 -->
+    <div class="question">
+      <img src="https://images.unsplash.com/photo-1565958011705-44e211f76626?auto=format&fit=crop&w=800&q=80" alt="Papas fritas">
+      <h2>¿Qué país reclama haber inventado las papas fritas?</h2>
+      <button onclick="checkAnswer(this, true)">Bélgica</button>
+      <button onclick="checkAnswer(this, false)">Francia</button>
+      <button onclick="checkAnswer(this, false)">EE.UU.</button>
+      <button onclick="checkAnswer(this, false)">Países Bajos</button>
+    </div>
+
+    <!-- Pregunta 4 -->
+    <div class="question">
+      <img src="https://images.unsplash.com/photo-1551782450-17144c3a091c?auto=format&fit=crop&w=800&q=80" alt="Hamburguesa">
+      <h2>¿Qué cadena de comida rápida introdujo el primer “drive-thru”?</h2>
+      <button onclick="checkAnswer(this, false)">Burger King</button>
+      <button onclick="checkAnswer(this, true)">In-N-Out Burger</button>
+      <button onclick="checkAnswer(this, false)">McDonald's</button>
+      <button onclick="checkAnswer(this, false)">Wendy's</button>
+    </div>
+
+    <!-- Pregunta 5 -->
+    <div class="question">
+      <img src="https://images.unsplash.com/photo-1580933073520-bb7b940a2cc2?auto=format&fit=crop&w=800&q=80" alt="Helado">
+      <h2>¿Qué sabor de helado fue el primero creado en la historia?</h2>
+      <button onclick="checkAnswer(this, false)">Chocolate</button>
+      <button onclick="checkAnswer(this, false)">Vainilla</button>
+      <button onclick="checkAnswer(this, true)">Miel</button>
+      <button onclick="checkAnswer(this, false)">Fresa</button>
     </div>
 
     <button class="next" onclick="window.location.href='resultado.html'">Ver resultado 🏁</button>
