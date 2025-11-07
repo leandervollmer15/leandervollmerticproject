@@ -9,25 +9,38 @@
 <body>
   <header>
     <h1>🎶 Quiz de Música & Bandas</h1>
+    <p>Demuestra cuánto sabes sobre canciones y bandas famosas del mundo.</p>
   </header>
 
   <main class="quiz">
+    <!-- Pregunta 1 -->
     <div class="question">
-      <img src="https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2?auto=format&fit=crop&w=800&q=80" alt="Queen">
-      <h2>¿Qué banda lanzó el álbum “A Night at the Opera”?</h2>
-      <button onclick="checkAnswer(this, true)">Queen</button>
-      <button onclick="checkAnswer(this, false)">The Beatles</button>
-      <button onclick="checkAnswer(this, false)">Oasis</button>
-      <button onclick="checkAnswer(this, false)">Blur</button>
+      <img src="https://upload.wikimedia.org/wikipedia/en/9/9e/Empire_of_the_Sun_-_We_Are_the_People.jpg" alt="We Are The People - Empire of the Sun">
+      <h2>¿De quién es la canción <em>“We Are The People”</em>?</h2>
+      <button onclick="checkAnswer(this, true)">Empire of the Sun</button>
+      <button onclick="checkAnswer(this, false)">MGMT</button>
+      <button onclick="checkAnswer(this, false)">Coldplay</button>
+      <button onclick="checkAnswer(this, false)">Imagine Dragons</button>
     </div>
 
+    <!-- Pregunta 2 -->
     <div class="question">
-      <img src="https://images.unsplash.com/photo-1507878866276-a947ef722fee?auto=format&fit=crop&w=800&q=80" alt="Daft Punk">
-      <h2>¿De qué país es Daft Punk?</h2>
-      <button onclick="checkAnswer(this, false)">EE.UU.</button>
-      <button onclick="checkAnswer(this, true)">Francia</button>
-      <button onclick="checkAnswer(this, false)">Reino Unido</button>
-      <button onclick="checkAnswer(this, false)">Italia</button>
+      <img src="https://upload.wikimedia.org/wikipedia/en/4/4e/The_Coronas_-_Cold_Little_Heart_cover.jpg" alt="Cold Little Heart - Michael Kiwanuka">
+      <h2>¿Quién canta la canción <em>“Cold Little Heart (Radio Edit)”</em>?</h2>
+      <button onclick="checkAnswer(this, true)">Michael Kiwanuka</button>
+      <button onclick="checkAnswer(this, false)">Hozier</button>
+      <button onclick="checkAnswer(this, false)">James Bay</button>
+      <button onclick="checkAnswer(this, false)">Sam Smith</button>
+    </div>
+
+    <!-- Pregunta 3 -->
+    <div class="question">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Arctic_Monkeys_at_Sziget_Festival_2018_%28cropped%29.jpg" alt="Arctic Monkeys">
+      <h2>¿En qué año se formó la banda <em>Arctic Monkeys</em>?</h2>
+      <button onclick="checkAnswer(this, true)">2002</button>
+      <button onclick="checkAnswer(this, false)">1998</button>
+      <button onclick="checkAnswer(this, false)">2005</button>
+      <button onclick="checkAnswer(this, false)">2010</button>
     </div>
 
     <button class="next" onclick="window.location.href='resultado.html'">Ver resultado 🏁</button>
