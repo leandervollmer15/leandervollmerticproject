@@ -3,144 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>El Gran Desafío 2.0</title>
+  <title>El Gran Desafío</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      background: linear-gradient(135deg, #ffe5ec, #e0f7fa);
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      text-align: center;
-      padding: 20px;
-      background: #fff;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    header h1 {
-      font-size: 2em;
-    }
-
-    .hero {
-      text-align: center;
-      animation: fadeIn 1s ease;
-      padding: 20px;
-    }
-
-    .hero img {
-      width: 250px;
-      border-radius: 50%;
-      box-shadow: 0 4px 25px rgba(0,0,0,0.2);
-      margin-top: 20px;
-      transition: transform 0.5s ease;
-    }
-
-    .hero img:hover {
-      transform: rotate(10deg) scale(1.1);
-    }
-
-    .topics {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      margin: 40px;
-    }
-
-    .topic {
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 15px;
-      padding: 20px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      text-align: center;
-      cursor: pointer;
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .topic:hover {
-      transform: translateY(-5px) scale(1.03);
-      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
-    }
-
-    .topic h3 {
-      margin-top: 10px;
-    }
-
-    footer {
-      text-align: center;
-      color: #333;
-      padding: 20px;
-      opacity: 0.8;
-      background: #fff;
-    }
-
-    button {
-      background-color: #ff4d6d;
-      color: white;
-      padding: 12px 25px;
-      border: none;
-      border-radius: 10px;
-      font-size: 1.1em;
-      cursor: pointer;
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
-
-    button:hover {
-      background-color: #ff1e50;
-      transform: scale(1.05);
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-  </style>
 </head>
 <body>
   <header>
-    <h1>🎯 El Gran Desafío 2.0</h1>
+    <h1>🎯 El Gran Desafío</h1>
+    <p>Demuestra tu conocimiento (o suerte) en estos quizzes locos 😜</p>
   </header>
 
-  <main>
-    <div class="hero">
-      <h2>Bienvenido al portal de los quizzes más locos del Internet 🤯</h2>
-      <p>Prepárate para poner a prueba tu cerebro (y reírte un poco en el camino 😜)</p>
-      <img src="https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&w=600&q=80" alt="logo divertido">
-    </div>
+  <main class="topics">
+    <a href="musica.html" class="topic">
+      <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80" alt="Musica">
+      <h3>🎵 Música & Bandas</h3>
+      <p>¿Cuánto sabes sobre los artistas y grupos más icónicos?</p>
+    </a>
 
-    <div class="topics">
-      <a href="comida.html" class="topic">
-        <h3>🍕 Comida y Locura</h3>
-        <p>Datos tan raros sobre comida que nunca volverás a ver una pizza igual.</p>
-      </a>
+    <a href="comida.html" class="topic">
+      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80" alt="Comida">
+      <h3>🍕 Comida y Locura</h3>
+      <p>Hechos tan raros sobre comida que te darán hambre... o miedo.</p>
+    </a>
 
-      <a href="musica.html" class="topic">
-        <h3>🎵 Música & Bandas</h3>
-        <p>Desde Queen hasta Daft Punk — demuestra que tu gusto musical tiene clase.</p>
-      </a>
-
-      <a href="fails.html" class="topic">
-        <h3>💀 Fails Épicos</h3>
-        <p>Errores tan ridículos que deberíamos darles un premio por creatividad.</p>
-      </a>
-
-      <a href="cosas-raras.html" class="topic">
-        <h3>🧠 Cosas Raras del Mundo</h3>
-        <p>Hechos que te harán decir: “¿Eso en serio existe?”.</p>
-      </a>
-    </div>
-
-    <div style="text-align:center; margin-top:40px;">
-      <button onclick="window.location.href='temas.html'">🚀 Ver todos los temas</button>
-    </div>
+    <a href="cultura.html" class="topic">
+      <img src="https://images.unsplash.com/photo-1473187983305-f615310e7daa?auto=format&fit=crop&w=800&q=80" alt="Cultura">
+      <h3>🌍 Cultura General</h3>
+      <p>Pon a prueba tu cerebro con curiosidades del mundo.</p>
+    </a>
   </main>
 
   <footer>
-    <p>Hecho con 💀 y mucha cafeína — por El Gran Desafío Team</p>
+    <p>Hecho con 💀 y café — El Gran Desafío 2025</p>
   </footer>
 </body>
 </html>
