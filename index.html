@@ -1,39 +1,79 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>El Gran Desafío</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quiz Creativo — Inicio</title>
+
+  <!-- Google Font: Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>🎯 El Gran Desafío</h1>
-    <p>Demuestra tu conocimiento y desafía a tus amigos con estos quizzes divertidos.</p>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo">Quiz Creativo</h1>
+      <nav class="nav">
+        <a href="index.html" aria-current="page">Inicio</a>
+        <a href="musica.html">Música</a>
+        <a href="comida.html">Comida</a>
+        <a href="cultura.html">Cultura</a>
+      </nav>
+    </div>
   </header>
 
-  <main class="topics">
-    <a href="musica.html" class="topic">
-      <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80" alt="Musica">
-      <h3>🎵 Música & Bandas</h3>
-      <p>¿Cuánto sabes sobre los artistas y grupos más icónicos?</p>
-    </a>
+  <main class="container main-grid">
+    <section class="hero card">
+      <h2>Elige un tema y demuestra tus conocimientos</h2>
+      <p>Quizzes divertidos y originales — 5 preguntas por tema. Responde con atención, cada respuesta se guarda automáticamente.</p>
+      <div class="cta-row">
+        <a class="btn" href="musica.html">Música</a>
+        <a class="btn" href="comida.html">Comida</a>
+        <a class="btn" href="cultura.html">Cultura</a>
+      </div>
+    </section>
 
-    <a href="comida.html" class="topic">
-      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80" alt="Comida">
-      <h3>🍕 Comida y Locura</h3>
-      <p>Hechos tan raros sobre comida que te sorprenderán.</p>
-    </a>
+    <section class="info card">
+      <h3>Instrucciones rápidas</h3>
+      <ol>
+        <li>Selecciona una categoría.</li>
+        <li>Responde las preguntas (no hay vuelta atrás por pregunta).</li>
+        <li>Pulsa <strong>Ver resultado 🏁</strong> cuando termines las tres categorías.</li>
+      </ol>
+      <p class="muted">El resultado total es sobre 15 preguntas. El sistema guarda la puntuación en tu navegador.</p>
+    </section>
 
-    <a href="cultura.html" class="topic">
-      <img src="https://images.unsplash.com/photo-1473187983305-f615310e7daa?auto=format&fit=crop&w=800&q=80" alt="Cultura">
-      <h3>🌍 Cultura General</h3>
-      <p>Pon a prueba tu conocimiento con curiosidades del mundo.</p>
-    </a>
+    <section class="media card">
+      <h3>Contacto</h3>
+      <!-- Replace the src in the iframe below with your Google Form embed URL.
+           Example (do not use this exact link): "https://docs.google.com/forms/d/e/XXXXXXXXXXXX/viewform?embedded=true" -->
+      <!-- Reemplazar la URL del iframe por el enlace de tu formulario real -->
+      <div class="form-frame">
+        <iframe title="Formulario de contacto (reemplazar src por tu formulario real)"
+                src="https://docs.google.com/forms/d/e/1FAIpQLSfDUMMYFORM/viewform?embedded=true"
+                width="100%" height="400" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+      </div>
+      <p class="muted small">Sustituye el iframe por tu formulario Google Forms real para recibir mensajes.</p>
+    </section>
+
+    <section class="links card">
+      <h3>Enlaces útiles</h3>
+      <ul>
+        <li><a href="https://es.wikipedia.org" target="_blank" rel="noopener">Wikipedia (es)</a></li>
+        <li><a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a></li>
+        <li><a href="https://github.com" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://www.youtube.com" target="_blank" rel="noopener">YouTube</a></li>
+      </ul>
+    </section>
   </main>
 
-  <footer>
-    <p>© 2025 El Gran Desafío — Todos los derechos reservados.</p>
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 — Proyecto Quiz Creativo — Facultad / Curso</p>
+    </div>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
