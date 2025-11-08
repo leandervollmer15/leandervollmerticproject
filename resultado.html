@@ -1,66 +1,115 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🏁 Resultados del Quiz</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resultado — Quiz Creativo</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <style>
-    .result-container {
-      text-align: center;
-      padding: 2rem;
-      animation: fadeIn 1s ease-in-out;
-    }
-
-    .result-container img {
-      width: 200px;
-      margin: 20px auto;
-      border-radius: 1rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-
-    .result-container h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    .result-container p {
-      font-size: 1.2rem;
-    }
-
-    .back-btn {
-      margin-top: 2rem;
-      padding: 1rem 2rem;
-      background-color: #0078ff;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: 0.3s;
-    }
-
-    .back-btn:hover {
-      background-color: #005ecc;
-      transform: scale(1.05);
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
 </head>
-<body onload="showResult()">
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo">Quiz Creativo — Resultado</h1>
+      <nav class="nav">
+        <a href="index.html">Inicio</a>
+        <a href="musica.html">Música</a>
+        <a href="comida.html">Comida</a>
+        <a href="cultura.html">Cultura</a>
+      </nav>
+    </div>
+  </header>
 
-  <div class="result-container">
-    <h1 id="result-title">Resultados</h1>
-    <img id="result-image" src="" alt="Resultado">
-    <p id="result-text"></p>
+  <main class="container">
+    <section class="result-card card">
+      <h2>Tu resultado</h2>
+      <div id="result-summary" class="result-summary">
+        <!-- JS rellenará el contenido aquí -->
+        <p class="muted">Calculando resultado…</p>
+      </div>
 
-    <button class="back-btn" onclick="window.location.href='index.html'">🔁 Volver al inicio</button>
-  </div>
+      <div class="result-actions">
+        <a class="btn" id="volver-inicio" href="index.html">Volver al inicio (reinicia)</a>
+        <a class="btn alt" href="#" id="ver-detalle">Ver detalle de respuestas (local)</a>
+      </div>
+    </section>
+
+    <section class="resources card">
+      <h3>Más recursos</h3>
+      <p>Si quieres mejorar tu puntuación, revisa las páginas de cada tema y vuelve a intentarlo.</p>
+      <ul>
+        <li><a href="https://es.wikipedia.org/wiki/M%C3%BAsica" target="_blank" rel="noopener">Historia de la música (Wikipedia)</a></li>
+        <li><a href="https://unsplash.com" target="_blank" rel="noopener">Imágenes libres en Unsplash</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 — Quiz Creativo — Resultados</p>
+    </div>
+  </footer>
 
   <script src="script.js"></script>
+  <script>
+    // Calcular y mostrar resultado cuando la página cargue
+    document.addEventListener('DOMContentLoaded', () => {
+      const totalPreguntas = 15;
+      const score = Number(localStorage.getItem('quiz_score') || 0);
+      const percent = Math.round((score / totalPreguntas) * 100);
+      const container = document.getElementById('result-summary');
+
+      let title = '';
+      let message = '';
+      let img = '';
+
+      if (percent >= 80) {
+        title = `¡Excelente! ${score}/${totalPreguntas} respuestas correctas`;
+        message = `¡Felicidades! Lograste ${percent}% — nivel avanzado. ¡Gran trabajo!`;
+        img = 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1200&q=60'; // celebratory
+      } else if (percent >= 50) {
+        title = `Buen intento — ${score}/${totalPreguntas}`;
+        message = `Has conseguido ${percent}%. Estás cerca, repasa y vuelve a intentarlo.`;
+        img = 'https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=1200&q=60'; // neutral fun
+      } else {
+        title = `¡Ups! ${score}/${totalPreguntas}`;
+        message = `Sólo ${percent}%. No te desanimes — volver a intentarlo puede ser divertido.`;
+        img = 'https://media.giphy.com/media/3oEduQAsYcJKQH2XsI/giphy.gif'; // humorous gif
+      }
+
+      container.innerHTML = `
+        <div class="result-card-inner">
+          <img class="result-img" src="${img}" alt="Imagen de resultado" />
+          <h3>${title}</h3>
+          <p>${message}</p>
+          <p class="small muted">Puntuación guardada en localStorage. Pulsa "Volver al inicio" para reiniciar la prueba.</p>
+        </div>
+      `;
+
+      // Volver al inicio: resetear puntuación y respuestas locales
+      document.getElementById('volver-inicio').addEventListener('click', (e) => {
+        // Al volver al inicio se limpia la puntuación para reiniciar
+        localStorage.removeItem('quiz_score');
+        localStorage.removeItem('quiz_answers');
+        // Navegación normal al index.html seguirá
+      });
+
+      // Mostrar detalle de respuestas (si existe)
+      document.getElementById('ver-detalle').addEventListener('click', (e) => {
+        e.preventDefault();
+        const answers = JSON.parse(localStorage.getItem('quiz_answers') || '{}');
+        if (!answers || Object.keys(answers).length === 0) {
+          alert('No hay detalles guardados en este navegador.');
+          return;
+        }
+        let txt = 'Detalle de respuestas guardadas (IDs):\\n';
+        for (const k of Object.keys(answers)) {
+          txt += `${k}: ${answers[k] ? 'correcta' : 'incorrecta'}\\n`;
+        }
+        alert(txt);
+      });
+    });
+  </script>
 </body>
 </html>
