@@ -1,70 +1,107 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🌍 Cultura General</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quiz: Cultura</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body onload="resetScore()">
-  <header>
-    <h1>🌍 Quiz de Cultura General</h1>
-    <p>Pon a prueba tu mente con datos curiosos, historia inesperada y cultura pop de todo el mundo.</p>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo">Quiz Creativo — Cultura</h1>
+      <nav class="nav">
+        <a href="index.html">Inicio</a>
+        <a href="musica.html">Música</a>
+        <a href="comida.html">Comida</a>
+        <a href="cultura.html" aria-current="page">Cultura</a>
+      </nav>
+    </div>
   </header>
 
-  <main class="quiz">
-    <!-- Pregunta 1 -->
-    <div class="question">
-      <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=800&q=80" alt="Stonehenge">
-      <h2>¿Dónde se encuentra el monumento prehistórico conocido como “Stonehenge”?</h2>
-      <button onclick="checkAnswer(this, true)">Reino Unido</button>
-      <button onclick="checkAnswer(this, false)">Irlanda</button>
-      <button onclick="checkAnswer(this, false)">Escocia</button>
-      <button onclick="checkAnswer(this, false)">Suecia</button>
-    </div>
+  <main class="container">
+    <section class="quiz-card card">
+      <h2>Quiz: Cultura y saberes curiosos</h2>
+      <p class="muted">Datos curiosos que no siempre son obvios.</p>
 
-    <!-- Pregunta 2 -->
-    <div class="question">
-      <img src="https://images.unsplash.com/photo-1533055640609-24b498dfd71b?auto=format&fit=crop&w=800&q=80" alt="Antártida">
-      <h2>¿Qué país no tiene una población permanente, pero sí estaciones de investigación?</h2>
-      <button onclick="checkAnswer(this, true)">Antártida</button>
-      <button onclick="checkAnswer(this, false)">Groenlandia</button>
-      <button onclick="checkAnswer(this, false)">Islandia</button>
-      <button onclick="checkAnswer(this, false)">Noruega</button>
-    </div>
+      <!-- 1 -->
+      <div class="question" data-qid="cul1">
+        <h3>1. ¿Cuál de estas lenguas tiene la particularidad de no distinguir entre «l» y «r» como fonemas diferentes?</h3>
+        <img class="quiz-img" src="https://images.unsplash.com/photo-1529101091764-c3526daf38fe?auto=format&fit=crop&w=1200&q=60" alt="Imagen representativa de idiomas y libros">
+        <div class="answers">
+          <button class="ans" data-correct="false">Inglés</button>
+          <button class="ans" data-correct="true">Japonés (en algunas variedades)</button>
+          <button class="ans" data-correct="false">Árabe</button>
+          <button class="ans" data-correct="false">Ruso</button>
+        </div>
+        <div class="reaction" aria-live="polite"></div>
+      </div>
 
-    <!-- Pregunta 3 -->
-    <div class="question">
-      <img src="https://images.unsplash.com/photo-1563201515-1d10b4e30e51?auto=format&fit=crop&w=800&q=80" alt="Idiomas del mundo">
-      <h2>¿Cuál de estos idiomas se habla en más países del mundo?</h2>
-      <button onclick="checkAnswer(this, false)">Chino mandarín</button>
-      <button onclick="checkAnswer(this, true)">Francés</button>
-      <button onclick="checkAnswer(this, false)">Árabe</button>
-      <button onclick="checkAnswer(this, false)">Ruso</button>
-    </div>
+      <!-- 2 -->
+      <div class="question" data-qid="cul2">
+        <h3>2. ¿Qué país inauguró el primer metro del mundo?</h3>
+        <img class="quiz-img" src="https://upload.wikimedia.org/wikipedia/commons/4/40/Old_Tunnel_of_the_London_Underground_%281915%29.jpg" alt="Antigua estación del metro de Londres">
+        <div class="answers">
+          <button class="ans" data-correct="true">Reino Unido (Londres)</button>
+          <button class="ans" data-correct="false">Estados Unidos (Nueva York)</button>
+          <button class="ans" data-correct="false">Francia (París)</button>
+          <button class="ans" data-correct="false">Alemania (Berlín)</button>
+        </div>
+        <div class="reaction" aria-live="polite"></div>
+      </div>
 
-    <!-- Pregunta 4 -->
-    <div class="question">
-      <img src="https://images.unsplash.com/photo-1604079628040-94301bb21b74?auto=format&fit=crop&w=800&q=80" alt="Lago">
-      <h2>¿Cuál es el lago más profundo del planeta?</h2>
-      <button onclick="checkAnswer(this, true)">Lago Baikal (Rusia)</button>
-      <button onclick="checkAnswer(this, false)">Lago Tanganica (África)</button>
-      <button onclick="checkAnswer(this, false)">Lago Superior (EE.UU.)</button>
-      <button onclick="checkAnswer(this, false)">Lago Victoria (África)</button>
-    </div>
+      <!-- 3 -->
+      <div class="question" data-qid="cul3">
+        <h3>3. En la tradición japonesa, ¿qué nombre recibe la ceremonia del té formal?</h3>
+        <img class="quiz-img" src="https://images.unsplash.com/photo-1545022855-19f3a8ff7a6a?auto=format&fit=crop&w=1200&q=60" alt="Ceremonia del té japonesa, imagen representativa">
+        <div class="answers">
+          <button class="ans" data-correct="false">Ikebana</button>
+          <button class="ans" data-correct="true">Chanoyu / Sadō</button>
+          <button class="ans" data-correct="false">Kabuki</button>
+          <button class="ans" data-correct="false">Haiku</button>
+        </div>
+        <div class="reaction" aria-live="polite"></div>
+      </div>
 
-    <!-- Pregunta 5 -->
-    <div class="question">
-      <img src="https://images.unsplash.com/photo-1555685812-4b943f1cb0eb?auto=format&fit=crop&w=800&q=80" alt="Bandera de Nepal">
-      <h2>¿Qué país tiene la única bandera nacional que no es rectangular?</h2>
-      <button onclick="checkAnswer(this, false)">Bután</button>
-      <button onclick="checkAnswer(this, false)">Sri Lanka</button>
-      <button onclick="checkAnswer(this, true)">Nepal</button>
-      <button onclick="checkAnswer(this, false)">Mongolia</button>
-    </div>
+      <!-- 4 -->
+      <div class="question" data-qid="cul4">
+        <h3>4. ¿Qué monumento fue construido originalmente como un faro y después transformado en tumba?</h3>
+        <img class="quiz-img" src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Mausoleum_of_Halicarnassus_replica.jpg" alt="Reconstrucción artística del Mausoleo de Halicarnaso">
+        <div class="answers">
+          <button class="ans" data-correct="false">Gran Pirámide de Giza</button>
+          <button class="ans" data-correct="true">Mausoleo de Halicarnaso</button>
+          <button class="ans" data-correct="false">Templo de Artemisa</button>
+          <button class="ans" data-correct="false">Faro de Alejandría</button>
+        </div>
+        <div class="reaction" aria-live="polite"></div>
+      </div>
 
-    <button class="next" onclick="window.location.href='resultado.html'">Ver resultado 🏁</button>
+      <!-- 5 -->
+      <div class="question" data-qid="cul5">
+        <h3>5. ¿Cuál es la pintura famosa hecha con técnica de "sfumato" por Leonardo da Vinci?</h3>
+        <img class="quiz-img" src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Leonardo_da_Vinci_-_Mona_Lisa_%28Louvre%2C_Paris%29.jpg" alt="La Mona Lisa, pintura de Leonardo da Vinci">
+        <div class="answers">
+          <button class="ans" data-correct="true">La Gioconda (Mona Lisa)</button>
+          <button class="ans" data-correct="false">La Noche Estrellada</button>
+          <button class="ans" data-correct="false">Guernica</button>
+          <button class="ans" data-correct="false">El Grito</button>
+        </div>
+        <div class="reaction" aria-live="polite"></div>
+      </div>
+
+      <div class="quiz-actions">
+        <a class="btn" href="resultado.html" id="ver-resultado">Ver resultado 🏁</a>
+      </div>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 — Quiz Creativo — Sección Cultura</p>
+    </div>
+  </footer>
 
   <script src="script.js"></script>
 </body>
