@@ -1,118 +1,67 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Quiz: Música</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz de Música y Bandas</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <h1 class="logo">Quiz Creativo — Música</h1>
-      <nav class="nav">
-        <a href="index.html">Inicio</a>
-        <a href="musica.html" aria-current="page">Música</a>
-        <a href="comida.html">Comida</a>
-        <a href="cultura.html">Cultura</a>
-      </nav>
-    </div>
+  <header>
+    <h1>🎶 Quiz de Música y Bandas</h1>
+    <p>Demuestra cuánto sabes de música moderna y bandas legendarias</p>
   </header>
 
-  <main class="container">
-    <section class="quiz-card card">
-      <h2>Quiz: Música y bandas</h2>
-      <p class="muted">5 preguntas. Cada selección se guarda en tu navegador.</p>
+  <main>
+    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1200&q=80"
+         alt="Concierto en vivo" class="header-img" />
 
-      <!-- Pregunta 1 -->
-      <div class="question" data-qid="mus1">
-        <h3>1. ¿De quién es la canción «We Are The People»?</h3>
-        <img class="quiz-img" src="https://upload.wikimedia.org/wikipedia/en/a/ae/Empire_of_the_Sun_-_Walking_on_a_Dream.png" alt="Portada del álbum 'Walking on a Dream' de Empire of the Sun">
-        <div class="answers">
-          <button class="ans" data-correct="false">Coldplay</button>
-          <button class="ans" data-correct="true">Empire of the Sun</button>
-          <button class="ans" data-correct="false">MGMT</button>
-          <button class="ans" data-correct="false">Phoenix</button>
-        </div>
-        <div class="reaction" aria-live="polite"></div>
-      </div>
-
-      <!-- Pregunta 2 -->
-      <div class="question" data-qid="mus2">
-        <h3>2. ¿De quién es la canción «Cold Little Heart (Radio Edit)»?</h3>
-        <img class="quiz-img" src="https://upload.wikimedia.org/wikipedia/commons/6/60/Michael_Kiwanuka_%28cropped%29.jpg" alt="Michael Kiwanuka en concierto (imagen representativa)">
-        <div class="answers">
-          <button class="ans" data-correct="true">Michael Kiwanuka</button>
-          <button class="ans" data-correct="false">Adele</button>
-          <button class="ans" data-correct="false">John Mayer</button>
-          <button class="ans" data-correct="false">Lana Del Rey</button>
-        </div>
-        <div class="reaction" aria-live="polite"></div>
-      </div>
-
-      <!-- Pregunta 3 -->
-      <div class="question" data-qid="mus3">
-        <h3>3. ¿En qué año se formó la banda Arctic Monkeys?</h3>
-        <img class="quiz-img" src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Arctic_Monkeys_2013.jpg" alt="Foto de Arctic Monkeys en 2013 (imagen representativa)">
-        <div class="answers">
-          <button class="ans" data-correct="false">1999</button>
-          <button class="ans" data-correct="true">2002</button>
-          <button class="ans" data-correct="false">2006</button>
-          <button class="ans" data-correct="false">2010</button>
-        </div>
-        <div class="reaction" aria-live="polite"></div>
-      </div>
-
-      <!-- Pregunta 4 -->
-      <div class="question" data-qid="mus4">
-        <h3>4. ¿Qué banda lanzó el álbum «Mezzanine», famoso por su atmósfera oscura?</h3>
-        <img class="quiz-img" src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1200&q=60" alt="Imagen de estudio musical, simbólica del sonido oscuro de un álbum">
-        <div class="answers">
-          <button class="ans" data-correct="false">Massive Attack</button>
-          <button class="ans" data-correct="true">Massive Attack</button>
-          <button class="ans" data-correct="false">Portishead</button>
-          <button class="ans" data-correct="false">Depeche Mode</button>
-        </div>
-        <div class="reaction" aria-live="polite"></div>
-      </div>
-
-      <!-- Pregunta 5 -->
-      <div class="question" data-qid="mus5">
-        <h3>5. ¿Qué instrumento es protagonista en muchas canciones de la banda Sigur Rós?</h3>
-        <img class="quiz-img" src="https://upload.wikimedia.org/wikipedia/commons/8/8f/Sigur_R%C3%B3s9.jpg" alt="Concierto de Sigur Rós (imagen representativa)">
-        <div class="answers">
-          <button class="ans" data-correct="false">Saxofón</button>
-          <button class="ans" data-correct="false">Batería electrónica</button>
-          <button class="ans" data-correct="true">Guitarra con arco / efectos</button>
-          <button class="ans" data-correct="false">Órgano Hammond</button>
-        </div>
-        <div class="reaction" aria-live="polite"></div>
-      </div>
-
-      <div class="quiz-actions">
-        <a class="btn" href="resultado.html" id="ver-resultado">Ver resultado 🏁</a>
-      </div>
-
-      <div class="video-embed card small">
-        <h4>Vídeo recomendado</h4>
-        <!-- Vídeo embebido de YouTube (seguro) -->
-        <iframe width="560" height="315"
-                src="https://www.youtube.com/embed/4x1bWslGzIM"
-                title="Vídeo de música recomendado"
-                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>© 2025 — Quiz Creativo — Sección Música</p>
+    <div class="question">
+      <img src="https://upload.wikimedia.org/wikipedia/en/8/8d/Empire_of_the_Sun_-_We_Are_the_People.jpg" alt="We Are The People - Empire of the Sun">
+      <h2>¿De quién es la canción "We Are The People"?</h2>
+      <button>Coldplay</button>
+      <button class="correct">Empire of the Sun</button>
+      <button>Imagine Dragons</button>
+      <button>MGMT</button>
     </div>
-  </footer>
 
-  <script src="script.js"></script>
+    <div class="question">
+      <img src="https://upload.wikimedia.org/wikipedia/en/1/1d/Michael_Kiwanuka_-_Cold_Little_Heart.jpg" alt="Cold Little Heart - Michael Kiwanuka">
+      <h2>¿De quién es la canción "Cold Little Heart (Radio Edit)"?</h2>
+      <button>Sam Smith</button>
+      <button>Paolo Nutini</button>
+      <button class="correct">Michael Kiwanuka</button>
+      <button>Leon Bridges</button>
+    </div>
+
+    <div class="question">
+      <img src="https://upload.wikimedia.org/wikipedia/en/6/68/Arctic_Monkeys_-_Tranquility_Base_Hotel_%26_Casino.png" alt="Arctic Monkeys">
+      <h2>¿En qué año se formó la banda Arctic Monkeys?</h2>
+      <button>1998</button>
+      <button>2002</button>
+      <button class="correct">2002</button>
+      <button>2007</button>
+    </div>
+
+    <div class="question">
+      <img src="https://upload.wikimedia.org/wikipedia/en/a/a7/Tame_Impala_-_Currents.png" alt="Tame Impala - Currents">
+      <h2>¿De dónde es originario el proyecto musical Tame Impala?</h2>
+      <button>Reino Unido</button>
+      <button>Estados Unidos</button>
+      <button class="correct">Australia</button>
+      <button>Canadá</button>
+    </div>
+
+    <div class="question">
+      <img src="https://upload.wikimedia.org/wikipedia/en/b/b9/The_Strokes_-_Room_on_Fire.png" alt="The Strokes">
+      <h2>¿Qué banda lanzó el álbum "Room on Fire"?</h2>
+      <button>The Killers</button>
+      <button>The Libertines</button>
+      <button class="correct">The Strokes</button>
+      <button>Interpol</button>
+    </div>
+
+    <a href="resultado.html" class="result-btn">Ver resultado 🏁</a>
+  </main>
 </body>
 </html>
