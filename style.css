@@ -1,79 +1,204 @@
-/* style.css — Estilos compartidos para todas las páginas */
+/* ==========================================================
+   ESTILO GENERAL - Proyecto Quiz Divertido
+   ----------------------------------------------------------
+   - Diseño moderno, claro y legible
+   - Compatible con todas las páginas
+   - Autor: ChatGPT + Leander Vollmer
+   ========================================================== */
 
-/* Variables para personalización fácil */
-:root{
-  --bg: #f6f8fb;
-  --card: #ffffff;
-  --accent: #6c63ff;
-  --accent-2: #ff6b6b;
-  --text: #1f2937;
-  --muted: #6b7280;
-  --glass: rgba(255,255,255,0.6);
-  --radius: 14px;
-  --shadow: 0 8px 24px rgba(15,23,42,0.08);
-  --max-width: 1000px;
+/* ---------- VARIABLES DE COLOR ---------- */
+:root {
+  --color-bg: #f6f8fb;
+  --color-primary: #4b6cb7;       /* Azul medio */
+  --color-secondary: #182848;     /* Azul oscuro */
+  --color-accent: #ffb703;        /* Amarillo suave */
+  --color-text: #222;
+  --color-light: #fff;
+  --color-correct: #4CAF50;
+  --color-incorrect: #e63946;
 }
 
-/* Reset y tipografía */
-* { box-sizing: border-box; }
-html,body { height:100%; margin:0; font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial; background:linear-gradient(180deg,var(--bg),#eef2ff); color:var(--text); }
-.container { max-width:var(--max-width); margin:0 auto; padding:20px; }
-
-/* Header */
-.site-header { background:transparent; padding:18px 0; }
-.site-header .container { display:flex; align-items:center; justify-content:space-between; gap:16px; }
-.logo { font-weight:700; font-size:20px; margin:0; color:var(--accent); letter-spacing:0.2px; }
-.nav a { margin-left:12px; text-decoration:none; color:var(--muted); font-weight:600; }
-.nav a[aria-current="page"] { color:var(--accent); }
-
-/* Layout */
-.main-grid { display:grid; grid-template-columns: 1.3fr 1fr; gap:18px; align-items:start; }
-@media (max-width:900px){ .main-grid { grid-template-columns:1fr; } }
-
-/* Cards */
-.card { background:var(--card); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow); }
-.hero { padding:28px; }
-.small { padding:12px; }
-
-/* Buttons */
-.btn { display:inline-block; background:linear-gradient(90deg,var(--accent),#8f7bff); color:#fff; padding:10px 16px; border-radius:12px; text-decoration:none; font-weight:600; transition:transform .16s ease, box-shadow .16s; box-shadow: 0 6px 18px rgba(108,99,255,0.18); }
-.btn:hover { transform:translateY(-4px); box-shadow: 0 12px 32px rgba(108,99,255,0.22); }
-.btn.alt { background:transparent; color:var(--accent); border:1px solid rgba(108,99,255,0.12); }
-
-/* Quiz card */
-.quiz-card { margin-top:18px; }
-.quiz-card h2 { margin-top:0; }
-.question { margin:18px 0; padding:14px; border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4)); box-shadow: 0 4px 12px rgba(15,23,42,0.03); }
-.question h3 { margin:0 0 10px 0; font-size:18px; }
-.quiz-img { width:100%; max-height:220px; object-fit:cover; border-radius:10px; display:block; margin-bottom:10px; pointer-events:none; } /* pointer-events none: imagen no bloquea clics */
-.answers { display:flex; flex-wrap:wrap; gap:10px; }
-.ans { flex:1 1 calc(50% - 10px); padding:10px 12px; border-radius:10px; border:2px solid transparent; background:linear-gradient(180deg,#fff,#fbfdff); cursor:pointer; transition:transform .12s ease, box-shadow .12s; font-weight:600; }
-.ans:hover { transform:translateY(-3px); box-shadow:0 8px 18px rgba(31,41,55,0.06); }
-.ans[aria-disabled="true"] { opacity:0.6; cursor:not-allowed; transform:none; box-shadow:none; }
-
-/* Reaction text */
-.reaction { margin-top:8px; min-height:28px; font-weight:700; color:var(--accent-2); transition:opacity .22s ease, transform .22s ease; }
-.reaction.show-correct { color: #16a34a; animation:pop .4s ease; }
-.reaction.show-wrong { color: var(--accent-2); animation:shake .4s ease; }
-
-/* Result */
-.result-summary { display:flex; gap:18px; align-items:center; padding:12px; }
-.result-img { width:160px; height:120px; object-fit:cover; border-radius:10px; pointer-events:none; }
-.result-card-inner h3 { margin:6px 0; }
-
-/* Footer */
-.site-footer { margin-top:30px; padding:16px 0; text-align:center; color:var(--muted); font-size:14px; }
-
-/* Responsive answers for mobile */
-@media (max-width:500px){
-  .ans { flex:1 1 100%; }
-  .result-img { width:100%; height:auto; }
+/* ---------- CONFIGURACIÓN GENERAL ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
 }
 
-/* Animations */
-@keyframes pop { 0% { transform:scale(.9); opacity:0 } 60% { transform:scale(1.06); opacity:1 } 100% { transform:scale(1); } }
-@keyframes shake { 0% { transform:translateX(0) } 25% { transform:translateX(-6px) } 50% { transform:translateX(6px) } 75% { transform:translateX(-3px) } 100% { transform:translateX(0) } }
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
 
-/* small text */
-.small { font-size:13px; }
-.muted { color:var(--muted); }
+/* ---------- ENCABEZADOS Y CONTENEDORES ---------- */
+header {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  color: var(--color-light);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+}
+
+/* ---------- SECCIONES GENERALES ---------- */
+.container {
+  max-width: 900px;
+  margin: 2rem auto;
+  background: var(--color-light);
+  padding: 2rem;
+  border-radius: 1.2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 0.6s ease;
+}
+
+.container img {
+  max-width: 100%;
+  border-radius: 1rem;
+  margin: 1rem 0;
+  pointer-events: none;
+}
+
+/* ---------- BOTONES ---------- */
+button, .btn, a.btn {
+  display: inline-block;
+  background: var(--color-primary);
+  color: var(--color-light);
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+button:hover, .btn:hover, a.btn:hover {
+  background: var(--color-secondary);
+  transform: scale(1.03);
+}
+
+button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* ---------- OPCIONES DE QUIZ ---------- */
+.quiz-question {
+  margin-bottom: 2rem;
+}
+
+.quiz-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 0.8rem;
+}
+
+.quiz-options button {
+  flex: 1 1 45%;
+  background: #e3e9f0;
+  color: var(--color-text);
+}
+
+.quiz-options button.correct {
+  background: var(--color-correct);
+  color: #fff;
+}
+
+.quiz-options button.incorrect {
+  background: var(--color-incorrect);
+  color: #fff;
+}
+
+.feedback {
+  margin-top: 0.5rem;
+  font-weight: 600;
+  min-height: 1.5rem;
+}
+
+/* ---------- RESULTADOS ---------- */
+.result-card {
+  text-align: center;
+  padding: 2rem;
+}
+
+.result-card img {
+  max-width: 250px;
+  margin: 1.5rem auto;
+  display: block;
+}
+
+.result-card h2 {
+  margin-bottom: 0.5rem;
+}
+
+/* ---------- PIE DE PÁGINA ---------- */
+footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
+  padding: 1rem 0;
+  margin-top: 2rem;
+  border-top: 1px solid #ddd;
+}
+
+/* ---------- ANIMACIONES ---------- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- PÁGINA DE INICIO (INDEX) ---------- */
+body.homepage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e3ebf7, #cfd9e8);
+}
+
+.home-container {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 3rem 2rem;
+  border-radius: 2rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 90%;
+  animation: fadeIn 1s ease;
+}
+
+.home-container h1 {
+  color: var(--color-secondary);
+  margin-bottom: 1rem;
+}
+
+.quiz-options a {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.quiz-options a:hover {
+  background: var(--color-secondary);
+}
+
+/* ---------- RESPONSIVE DESIGN ---------- */
+@media (max-width: 768px) {
+  .container {
+    padding: 1.2rem;
+  }
+
+  .quiz-options button {
+    flex: 1 1 100%;
+  }
+
+  .home-container {
+    padding: 2rem 1rem;
+  }
+}
