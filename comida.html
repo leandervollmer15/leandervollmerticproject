@@ -1,70 +1,107 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🍕 Comida y Locura</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quiz: Comida</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>🍔 Quiz de Comida y Locura</h1>
-    <p>Datos tan raros sobre comida que nunca volverás a ver tu plato igual 😜</p>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo">Quiz Creativo — Comida</h1>
+      <nav class="nav">
+        <a href="index.html">Inicio</a>
+        <a href="musica.html">Música</a>
+        <a href="comida.html" aria-current="page">Comida</a>
+        <a href="cultura.html">Cultura</a>
+      </nav>
+    </div>
   </header>
 
-  <main class="quiz">
-    <!-- Pregunta 1 -->
-    <div class="question">
-      <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=800&q=80" alt="Pizza">
-      <h2>¿Dónde se inventó la pizza moderna?</h2>
-      <button onclick="checkAnswer(this, true)">Italia</button>
-      <button onclick="checkAnswer(this, false)">EE.UU.</button>
-      <button onclick="checkAnswer(this, false)">Grecia</button>
-      <button onclick="checkAnswer(this, false)">Francia</button>
-    </div>
+  <main class="container">
+    <section class="quiz-card card">
+      <h2>Quiz: Comida y curiosidades</h2>
+      <p class="muted">¿Cuánto sabes sobre sabores curiosos, orígenes y datos locos?</p>
 
-    <!-- Pregunta 2 -->
-    <div class="question">
-      <img src="https://images.unsplash.com/photo-1604909053247-7a4b56b92a3c?auto=format&fit=crop&w=800&q=80" alt="Chocolate">
-      <h2>¿De dónde proviene originalmente el cacao?</h2>
-      <button onclick="checkAnswer(this, true)">América Central</button>
-      <button onclick="checkAnswer(this, false)">África</button>
-      <button onclick="checkAnswer(this, false)">Europa</button>
-      <button onclick="checkAnswer(this, false)">Asia</button>
-    </div>
+      <!-- 1 -->
+      <div class="question" data-qid="com1">
+        <h3>1. ¿De qué país es originaria la salsa llamada «Sriracha»?</h3>
+        <img class="quiz-img" src="https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=1200&q=60" alt="Botella de salsa picante representativa">
+        <div class="answers">
+          <button class="ans" data-correct="false">México</button>
+          <button class="ans" data-correct="true">Tailandia</button>
+          <button class="ans" data-correct="false">China</button>
+          <button class="ans" data-correct="false">Indonesia</button>
+        </div>
+        <div class="reaction" aria-live="polite"></div>
+      </div>
 
-    <!-- Pregunta 3 -->
-    <div class="question">
-      <img src="https://images.unsplash.com/photo-1565958011705-44e211f76626?auto=format&fit=crop&w=800&q=80" alt="Papas fritas">
-      <h2>¿Qué país reclama haber inventado las papas fritas?</h2>
-      <button onclick="checkAnswer(this, true)">Bélgica</button>
-      <button onclick="checkAnswer(this, false)">Francia</button>
-      <button onclick="checkAnswer(this, false)">EE.UU.</button>
-      <button onclick="checkAnswer(this, false)">Países Bajos</button>
-    </div>
+      <!-- 2 -->
+      <div class="question" data-qid="com2">
+        <h3>2. ¿Qué alimento tradicional japonés se prepara con arroz fermentado y pescado (y a menudo sorprende a los visitantes)?</h3>
+        <img class="quiz-img" src="https://upload.wikimedia.org/wikipedia/commons/6/69/Narezushi.jpg" alt="Narezushi: sushi fermentado tradicional japonés">
+        <div class="answers">
+          <button class="ans" data-correct="true">Narezushi (sushi fermentado)</button>
+          <button class="ans" data-correct="false">Sashimi</button>
+          <button class="ans" data-correct="false">Okonomiyaki</button>
+          <button class="ans" data-correct="false">Takoyaki</button>
+        </div>
+        <div class="reaction" aria-live="polite"></div>
+      </div>
 
-    <!-- Pregunta 4 -->
-    <div class="question">
-      <img src="https://images.unsplash.com/photo-1551782450-17144c3a091c?auto=format&fit=crop&w=800&q=80" alt="Hamburguesa">
-      <h2>¿Qué cadena de comida rápida introdujo el primer “drive-thru”?</h2>
-      <button onclick="checkAnswer(this, false)">Burger King</button>
-      <button onclick="checkAnswer(this, true)">In-N-Out Burger</button>
-      <button onclick="checkAnswer(this, false)">McDonald's</button>
-      <button onclick="checkAnswer(this, false)">Wendy's</button>
-    </div>
+      <!-- 3 -->
+      <div class="question" data-qid="com3">
+        <h3>3. ¿Cuál de estas frutas fue originalmente considerada venenosa en Europa y por eso se cultivó como ornamental?</h3>
+        <img class="quiz-img" src="https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=1200&q=60" alt="Fruta representativa">
+        <div class="answers">
+          <button class="ans" data-correct="false">Tomate</button>
+          <button class="ans" data-correct="true">Tomate</button>
+          <button class="ans" data-correct="false">Fresa</button>
+          <button class="ans" data-correct="false">Manzana</button>
+        </div>
+        <div class="reaction" aria-live="polite"></div>
+      </div>
 
-    <!-- Pregunta 5 -->
-    <div class="question">
-      <img src="https://images.unsplash.com/photo-1580933073520-bb7b940a2cc2?auto=format&fit=crop&w=800&q=80" alt="Helado">
-      <h2>¿Qué sabor de helado fue el primero creado en la historia?</h2>
-      <button onclick="checkAnswer(this, false)">Chocolate</button>
-      <button onclick="checkAnswer(this, false)">Vainilla</button>
-      <button onclick="checkAnswer(this, true)">Miel</button>
-      <button onclick="checkAnswer(this, false)">Fresa</button>
-    </div>
+      <!-- 4 -->
+      <div class="question" data-qid="com4">
+        <h3>4. El «pulque» es una bebida fermentada del centro de México hecha a partir de:</h3>
+        <img class="quiz-img" src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Pulque_de_mezcal.jpg" alt="Vaso de pulque mexicano (imagen representativa)">
+        <div class="answers">
+          <button class="ans" data-correct="true">Agave</button>
+          <button class="ans" data-correct="false">Maíz</button>
+          <button class="ans" data-correct="false">Trigo</button>
+          <button class="ans" data-correct="false">Arroz</button>
+        </div>
+        <div class="reaction" aria-live="polite"></div>
+      </div>
 
-    <button class="next" onclick="window.location.href='resultado.html'">Ver resultado 🏁</button>
+      <!-- 5 -->
+      <div class="question" data-qid="com5">
+        <h3>5. ¿Qué queso italiano famoso se produce con leche de búfala (o su versión auténtica)?</h3>
+        <img class="quiz-img" src="https://images.unsplash.com/photo-1604909053246-3b887a1d7f06?auto=format&fit=crop&w=1200&q=60" alt="Mozzarella de búfala (imagen representativa)">
+        <div class="answers">
+          <button class="ans" data-correct="true">Mozzarella di bufala</button>
+          <button class="ans" data-correct="false">Parmigiano Reggiano</button>
+          <button class="ans" data-correct="false">Gorgonzola</button>
+          <button class="ans" data-correct="false">Pecorino</button>
+        </div>
+        <div class="reaction" aria-live="polite"></div>
+      </div>
+
+      <div class="quiz-actions">
+        <a class="btn" href="resultado.html" id="ver-resultado">Ver resultado 🏁</a>
+      </div>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 — Quiz Creativo — Sección Comida</p>
+    </div>
+  </footer>
 
   <script src="script.js"></script>
 </body>
